@@ -1,0 +1,39 @@
+
+version: '3.8'
+
+services:
+  # Serviço da primeira aplicação
+  app1:
+    build: ./app1
+    container_name: app1
+    networks:
+      - app-network
+
+  # Serviço da segunda aplicação
+  app2:
+    build: ./app2
+    container_name: app2
+    networks:
+      - app-network
+
+  # Serviço do Reverse Proxy (nginx)
+  nginx:
+    build: ./nginx
+    container_name: reverse-proxy
+    ports:
+      # Setando a porta 80 do container na porta 80 da sua máquina.
+      - "80:80"
+    networks:
+      - app-network
+    
+    # Garante que o Nginx só inicie depois que app1 e app2 passarem no healthcheck
+    depends_on:
+      app1:
+        condition: service_healthy
+      app2:
+        condition: service_healthy
+
+# Define a rede customizada para os containers se comunicarem
+networks:
+  app-network:
+    driver: bridge

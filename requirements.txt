@@ -1,1 +1,6 @@
 Flask==2.2.2
+Werkzeug<3.0.0
+
+#Copia e instala as dependências:
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt

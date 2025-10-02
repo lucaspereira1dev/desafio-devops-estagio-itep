@@ -6,13 +6,13 @@ O desafio proposto é a criação de um sistema web com 2 containers contendo ap
 
 🚀 Tecnologias Utilizadas
 
-    Containerização: Docker, Docker Compose
+Containerização: Docker, Docker Compose
 
-    Reverse Proxy: Nginx
+Reverse Proxy: Nginx
 
-    Backend App1: Python com Flask
+Backend App1: Python com Flask
 
-    Backend App2: Python com Streamlit e Scikit-learn
+Backend App2: Python com Streamlit e Scikit-learn
 
 ⚙️ Descrição dos Serviços
 
@@ -22,9 +22,9 @@ O Nginx foi escolhido para atuar como reverse proxy por ser uma solução madura
 
 Além disso, ele é responsável por:
 
-    Servir arquivos estáticos (CSS, JS) da app1 diretamente, otimizando a performance.
+Servir arquivos estáticos (CSS, JS) da app1 diretamente, otimizando a performance.
 
-    Gerenciar a comunicação WebSocket necessária para a interatividade da app2 (Streamlit).
+Gerenciar a comunicação WebSocket necessária para a interatividade da app2 (Streamlit).
 
 Todas as suas configurações estão no arquivo nginx/nginx.conf.
 
@@ -40,23 +40,21 @@ Um Data App construído com Streamlit que apresenta uma solução de Machine Lea
 
 ### Pré-requisitos
 
-    Docker instalado e em execução.
+Docker instalado e em execução.
 
-    Docker Compose instalado.
+Docker Compose instalado.
 
-    Git para clonar o repositório.
+Git para clonar o repositório.
 
 ### Passo a Passo
 
-    Clonar o Repositório
-    Bash
+Clonar o Repositório
 
-git clone https://github.com/lucaspereira1dev/desafio-devops-estagio-itep.git
+    git clone https://github.com/lucaspereira1dev/desafio-devops-estagio-itep.git
 
 Entrar no Diretório do Projeto
-Bash
 
-cd desafio-devops-estagio-itep
+    cd desafio-devops-estagio-itep
 
 Aviso para Usuários Windows ⚠️
 Este projeto usa um script de inicialização (entrypoint.sh). No Windows, é possível que este arquivo seja salvo com um formato de quebra de linha (CRLF) incompatível com o ambiente Linux do container. Se você encontrar um erro no such file or directory relacionado ao entrypoint.sh, converta o arquivo para o formato LF. Em editores como o VS Code, basta clicar em "CRLF" na barra de status inferior e selecionar "LF".
@@ -67,19 +65,16 @@ Bash
 
     docker-compose up -d --build
 
-        -d: Modo "detached", roda em segundo plano.
-
-        --build: Força a reconstrução das imagens, garantindo que suas últimas alterações sejam aplicadas.
 
 ## ➡️ Como Acessar
 
 Após a inicialização, as aplicações estarão disponíveis nos seguintes endereços:
 
-    Página Principal (Nginx): http://localhost/
+Página Principal (Nginx): http://localhost/
 
-    Aplicação 1 (Quiz): http://localhost/app1/
+Aplicação 1 (Quiz): http://localhost/app1/
 
-    Aplicação 2 (Data App): http://localhost/app2/
+Aplicação 2 (Data App): http://localhost/app2/
 
 ## 📊 Verificando o Status
 

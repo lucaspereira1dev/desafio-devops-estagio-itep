@@ -1,1 +1,5 @@
-Flask
+pandas
+streamlit
+plotly
+scikit-learn
+joblib

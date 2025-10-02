@@ -1,38 +1,122 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Estático no Docker</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f2f5;
-        }
-        .container {
-            text-align: center;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-    </style>
+    <title>Projeto Quizz</title>
+    <meta name="viewport" content="width=device-width, initial-sacle=1">
+    <link rel="stylesheet" href="/app1/static/css/style.css">
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>Olá, Mundo!</h1>
-        <p>Este site estático está sendo servido por Flask dentro de um contêiner Docker.</p>
-        <p>Tarefa concluída com sucesso!</p>
+    <div class="login-box custom-box">
+
+        <p>(Clique <button class="register-btn" onclick="newUser()">AQUI</button> caso ainda não seja cadastrado)</p>
+        <hr>
+        <div class="login-content">
+            <form>
+                <label for="username">Usuário: </label>
+                <br>
+                <input type="text" id="username" name="username" minlength="5" required>
+                <br>
+                <label for="pass">Senha: </label>
+                <br>
+                <input type="password" id="password" name="password" minlength="8" required>
+                <br>
+                <hr>
+                <button class="btn">Salvar</button>
+            </form>
+        </div>
+        <hr>
+        <button class="btn">Entrar</button>
+
     </div>
+
+    <div class="register-box custom-box hide">
+        <strong>Para se registrar, preencha todos os campos a seguir: </strong>
+        <hr class="line">
+        <form class="info-container">
+
+            <input class="info-box" type="text" id="first-name" name="firstname" placeholder="Nome: "><br>
+            <input class="info-box" type="text" id="last-name" name="lastname" placeholder="Sobrenome: "><br>
+            <input class="info-box" type="password" id="password" name="password" minlength="8" required
+                placeholder="Senha: "><br>
+            <input class="info-box" type="password" id="chek-password" name="" minlength="8" required
+                placeholder="Confirmar senha: "><br>
+            <input class="info-box" type="email" id="e-mail" name="email" placeholder="Email: "><br>
+            <input class="info-box" type="text" id="user-name" name="username" placeholder="Usuário: "><br>
+
+            <button class="btn btn-save" type="submit">Salvar</button>
+        </form>
+        <hr class="line">
+        <div>
+            <button class="btn" onclick="asGuest()">Entrar como convidado</button>
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="home-box custom-box hide">
+        <h3>Instruções:</h3>
+        <p>Total de questões: <span class="total-question"></span></p>
+        <button type="button" class="btn" onclick="startQuiz()">Jogar</button>
+    </div>
+
+    <div class="quiz-box custom-box hide">
+        <div class="question-number">
+
+        </div>
+        <div class="question-text">
+
+        </div>
+        <div class="option-container">
+
+        </div>
+        <div class="next-question-btn">
+            <button type="button" class="btn" onclick="next()">Próxima</button>
+        </div>
+        <div class="answers-indicator">
+
+        </div>
+    </div>
+
+    <div class="result-box custom-box hide">
+        <h1>Resultados</h1>
+        <table>
+            <tr>
+                <td>Questões Totais</td>
+                <td><span class="total-question"></span></td>
+            </tr>
+            <tr>
+                <td>Tentativas</td>
+                <td><span class="total-attempt"></span></td>
+            </tr>
+            <tr>
+                <td>Acertos</td>
+                <td><span class="total-correct"></span></td>
+            </tr>
+            <tr>
+                <td>Erros</td>
+                <td><span class="total-wrong"></span></td>
+            </tr>
+            <tr>
+                <td>Porcentagem</td>
+                <td><span class="percentage"></span></td>
+            </tr>
+            <tr>
+                <td>Pontuação total</td>
+                <td><span class="total-score"></span></td>
+            </tr>
+        </table>
+        <button type="button" class="btn" onclick="tryAgainQuiz()">Jogar novamente</button>
+        <button type="button" class="btn" onclick="goToHome()">Voltar ao Menu</button>
+    </div>
+
+    <script src="/app1/static/js/questions.js"></script>
+    <script src="/app1/static/js/app.js"></script>
+
 </body>
+
 </html>

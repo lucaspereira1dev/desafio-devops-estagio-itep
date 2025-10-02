@@ -6,6 +6,7 @@ services:
     networks:
       - app-network
 
+    
   # Serviço da segunda aplicação
   app2:
     build: ./app2
@@ -30,6 +31,12 @@ services:
       app2:
         condition: service_healthy
 
+
+    # É necessário criar um volume compartilhado coms os aruqivos estáticos...
+    volumes:
+      - ./app1/static:/var/www/app1/static
+
+      
 # Define a rede customizada para os containers se comunicarem
 networks:
   app-network:
